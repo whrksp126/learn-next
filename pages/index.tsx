@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Button } from '@chakra-ui/react'
 import Link from 'next/link'
+import HomeCompIndex from '../components/home/ui'
 
 export default function Home(){
   return (
@@ -14,13 +15,7 @@ export default function Home(){
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Next.js!</h1>
-        <Button>
-          <Link href="/events">Explore Events!</Link>
-        </Button>
-        <Button>
-          <Link href="/users">See All Users</Link>
-        </Button>
+        <HomeCompIndex />
       </main>
     </div>
   )
