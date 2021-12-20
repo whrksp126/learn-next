@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import TodosCompIndex from '../../components/todos/ui'
 
 const TodoIndex = () => {
   return (
     <div>
-      we will make our todos here
+      <TodosCompIndex />
     </div>
   )
 }
