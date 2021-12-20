@@ -18,6 +18,7 @@ import {
 import { HamburgerIcon, CloseIcon, AddIcon } from '@chakra-ui/icons';
 import Link from 'next/link'
 import { ColorModeSwitcher } from './ColorModeSwicher';
+import navStyles from './navbar.module.css';
 
 // const Links = ['Dashboard', 'Projects', 'Team'];
 const Links = [
@@ -57,7 +58,7 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <>
+    <div className={navStyles.mobileNav}>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
@@ -126,6 +127,6 @@ export default function Navbar() {
       </Box>
 
       {/* <Box p={4}>Main Content Here</Box> */}
-    </>
+    </div>
   );
 }
