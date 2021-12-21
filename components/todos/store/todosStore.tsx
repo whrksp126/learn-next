@@ -1,13 +1,9 @@
 import {configure, makeAutoObservable} from 'mobx';
+import { ITodoModel } from '../../../imodels/ItodoModel';
 configure({
   enforceActions: 'never',
 });
 
-export interface ITodoModel {
-  id: number;
-  text: string;
-  done: boolean;
-}
 
 class TodosStore{
   todosList : ITodoModel[] = [];
