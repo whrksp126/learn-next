@@ -11,7 +11,14 @@ function AddTodo() {
         value={todosStore.todo.text}
         onChange={(evt) => (todosStore.todo.text = evt.target.value)}
       />
-      <Button onClick={() => todosStore.addTodo() }>Add Todo</Button>
+      <Button 
+        onClick={() => {
+          if(todosStore.todo.text === '') {
+            return alert("Hey! your todo can't be empty!!");
+          }
+          return todosStore.addTodo();
+        }}
+      >Add Todo</Button>
     </Grid>
   );
 }
