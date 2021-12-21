@@ -33,6 +33,9 @@ class TodosStore{
 
   deleteTodo =(id: number) => {
     console.log(`todos ${this.todosList}`);
+    for (let i = 0; i < this.todosList.length; i++) {
+      console.log(this.todosList[i].text);
+    }
     console.log(`delete id: ${id}`);
     this.todosList = this.todosList.filter((todo) => todo.id !== id);
   } 
