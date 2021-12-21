@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Button, Input, Flex, Checkbox, Heading } from "@chakra-ui/react";
-import todosStore, { ITodoModel } from "../store/todosStore";
+import { Button, Input, Flex, Checkbox, Heading, HStack, Spacer } from "@chakra-ui/react";
+import todosStore from "../store/todosStore";
 import { observer } from "mobx-react-lite";
+import { ITodoModel } from "../../../imodels/ItodoModel";
 
 function TodoListItems() {
   return (
@@ -9,8 +10,17 @@ function TodoListItems() {
       {todosStore.todosList.map((todo: ITodoModel) => (
         <Flex pt={2} key={todo.id}>
           <Checkbox position='static' />
-          <Input position='static' mx={2} value={todo.text} onChange={(evt) => DOMRectReadOnly} />
-          <Button position='static' onClick={() => todosStore.deleteTodo(todo.id) }>Delete</Button>
+          <Input 
+            position='static' 
+            mx={2} 
+            value={`id: ${todo.id}, ${todo.text}`} 
+            onChange={(evt) => DOMRectReadOnly} 
+          />
+          <Button 
+            position='static'  
+            onClick={() => todosStore.deleteTodo(todo.id) }
+          >Delete
+          </Button>
         </Flex>
       ))}
     </>
@@ -22,7 +32,11 @@ const TodoListObserver = observer(TodoListItems);
 function TodoList() {
   return (
     <>
-      <Heading>Todo List</Heading>
+      <HStack>
+        <Heading>Todo List</Heading>
+        <Spacer />
+        <Button position='static' onClick={()=>todosStore.getTodosFromApi()}>Load Todos From Api</Button>
+      </HStack>
       <TodoListObserver />
     </>
   );
