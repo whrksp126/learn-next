@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button, Input, Flex, Checkbox, Heading, HStack, Spacer } from "@chakra-ui/react";
 import todosStore from "../store/todosStore";
 import { observer } from "mobx-react-lite";
-import { ITodoModel } from "../../../imodels/ItodoModel";
+import { ITodoModel } from "../../../imodels/ITodoModel";
 
 function TodoListItems() {
   return (
